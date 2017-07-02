@@ -1,0 +1,12 @@
+create database custom;
+use custom;
+
+create table temperature_data(date String, zipcode BIGINT, temp int)
+row format delimited
+fields terminated by ',';
+
+
+LOAD DATA LOCAL INPATH '/home/acadgild/Downloads/temperature.txt' OVERWRITE INTO TABLE temperature_data;
+
+--display the schema
+select * from temperature_data;
